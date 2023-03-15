@@ -3,6 +3,7 @@ package br.com.dio.collection.list;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Iterator;
 
 /*Faça um programa que receba a temperatura média os 6 primeiros meses do ano e armazene-as em uma lista.
 Após isto, calcule a média semestral das temperaturas e mostre todas as temperaturas acima desta média,
@@ -29,6 +30,9 @@ public class ExercicioProposto01 {
         //exibindo todas as temperaturas:
         System.out.print("Todas as temperaturas: ");
         temperaturas.forEach(t -> System.out.print(t + " "));
+      /* Ouro jeito de mostrar a LIST
+        System.out.println(temperaturas.toString());
+        System.out.println(temperaturas); */
 
         //calculando e exibindo a média das temperaturas:
         double media = temperaturas.stream()
@@ -37,11 +41,22 @@ public class ExercicioProposto01 {
                 .orElse(0d);
         System.out.printf("\nMédia das temperaturas: %.1f\n", media);
 
+      /* Outra forma de calcular e exibir a média das temperaturas:
+       Iterator<Double> it = temperaturas.iterator();
+        Double soma = 0d;
+        while(it.hasNext()){
+            Double next = it.next();
+            soma += next;
+        }
+        System.out.printf("\nMédia das temperaturas: %.1f\n", soma/ temperaturas.size());  */
+
         //exibindo as temperaturas acima da média
         System.out.print("Temperaturas acima da média: ");
         temperaturas.stream()
                 .filter(t -> t > media)
                 .forEach(t -> System.out.printf("%.1f ", t));
+
+
 
         //exibindo o mês das temperaturas acima da média por extenso:
         System.out.println("\n\nMeses das temperaturas acima da média: ");

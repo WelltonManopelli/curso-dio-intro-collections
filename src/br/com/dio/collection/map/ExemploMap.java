@@ -52,6 +52,15 @@ public class ExemploMap {
         Set<Map.Entry<String, Double>> entries = carrosPopulares.entrySet();
         String modeloMaisEficiente = "";
 
+    /* de outro jeito sem precisar criar outra set entries
+        for (Map.Entry<String, Double> carrosPopular : carrosPopulares.entrySet()) {
+            if (carrosPopular.getValue().equals(consumoMaisEficiente)) {
+                modeloMaisEficiente = carrosPopular.getKey();
+                System.out.println("Modelo mais eficiente de outro jeito: " + modeloMaisEficiente + " - " + consumoMaisEficiente);
+            }
+        }
+*/
+
         for (Map.Entry<String, Double> entry : entries) {
             if (entry.getValue().equals(consumoMaisEficiente)) {
                 modeloMaisEficiente = entry.getKey();
